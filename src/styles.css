@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+    nav ul li a:hover {
+      color: #61dafb;
+    }
+
+section {
+  padding: 4rem 2rem;
+  margin: 1rem 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+  section#about {
+    background-color: #e3f2fd;
+  }
+
+  section#projects {
+    background-color: #e8f5e9;
+  }
+
+  section#contact {
+    background-color: #fce4ec;
+  }
+
+footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+button#toggle-lang {
+  background-color: #61dafb;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+  button#toggle-lang:hover {
+    background-color: #21a1f1;
+  }
+
+@media (min-width: 768px) {
+  section {
+    padding: 6rem 4rem;
+  }
+}

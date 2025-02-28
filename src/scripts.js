@@ -1,16 +1,8 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true,
-})
-  .catch(err => console.error(err));
-
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Document is ready!');
 
   // Smooth scrolling for anchor links
-  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll < HTMLAnchorElement > ('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e: Event) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
@@ -32,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.lang = newLang;
     document.documentElement.dir = newDir;
 
-    document.querySelectorAll<HTMLElement>('[data-en]').forEach(element => {
+    document.querySelectorAll < HTMLElement > ('[data-en]').forEach(element => {
       const newText = element.getAttribute(`data-${newLang}`);
       if (newText) {
         element.textContent = newText;
