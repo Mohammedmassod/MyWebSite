@@ -8,7 +8,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-3FDAJ56C.js";
+} from "./chunk-ICE4W7DU.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -94,7 +94,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-MLSFSH6F.js";
+} from "./chunk-ICDOO44F.js";
 
 // node_modules/@angular/common/fesm2022/http.mjs
 var HttpHandler = class {
@@ -4396,7 +4396,7 @@ function provideClientHydration(...features) {
   }
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
-var VERSION = new Version("19.2.0");
+var VERSION = new Version("19.2.1");
 
 export {
   BrowserDomAdapter,
@@ -4441,16 +4441,16 @@ export {
 
 @angular/common/fesm2022/http.mjs:
   (**
-   * @license Angular v19.2.0
-   * (c) 2010-2024 Google LLC. https://angular.io/
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/platform-browser/fesm2022/platform-browser.mjs:
   (**
-   * @license Angular v19.2.0
-   * (c) 2010-2024 Google LLC. https://angular.io/
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-OQ4DNXVN.js.map
+//# sourceMappingURL=chunk-7ZTVKTLH.js.map

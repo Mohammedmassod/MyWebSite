@@ -492,6 +492,18 @@ var WATCH_NODE = (() => {
   });
 })();
 
+// node_modules/@angular/core/fesm2022/primitives/di.mjs
+var _currentInjector = void 0;
+function getCurrentInjector() {
+  return _currentInjector;
+}
+function setCurrentInjector(injector) {
+  const former = _currentInjector;
+  _currentInjector = injector;
+  return former;
+}
+var NOT_FOUND = Symbol("NotFound");
+
 // node_modules/tslib/tslib.es6.mjs
 var extendStatics = function(d, b) {
   extendStatics = Object.setPrototypeOf || {
@@ -5255,28 +5267,25 @@ function assertInjectImplementationNotEqual(fn) {
 }
 var _THROW_IF_NOT_FOUND = {};
 var THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
+function getCurrentInjector2() {
+  return getCurrentInjector();
+}
+function setCurrentInjector2(injector) {
+  return setCurrentInjector(injector);
+}
 var DI_DECORATOR_FLAG = "__NG_DI_FLAG__";
 var NG_TEMP_TOKEN_PATH = "ngTempTokenPath";
 var NG_TOKEN_PATH = "ngTokenPath";
 var NEW_LINE = /\n/gm;
 var NO_NEW_LINE = "ɵ";
 var SOURCE = "__source";
-var _currentInjector = void 0;
-function getCurrentInjector() {
-  return _currentInjector;
-}
-function setCurrentInjector(injector) {
-  const former = _currentInjector;
-  _currentInjector = injector;
-  return former;
-}
 function injectInjectorOnly(token, flags = InjectFlags.Default) {
-  if (_currentInjector === void 0) {
+  if (getCurrentInjector2() === void 0) {
     throw new RuntimeError(-203, ngDevMode && `inject() must be called from an injection context such as a constructor, a factory function, a field initializer, or a function used with \`runInInjectionContext\`.`);
-  } else if (_currentInjector === null) {
+  } else if (getCurrentInjector2() === null) {
     return injectRootLimpMode(token, void 0, flags);
   } else {
-    const value = _currentInjector.get(token, flags & InjectFlags.Optional ? null : void 0, flags);
+    const value = getCurrentInjector2().get(token, flags & InjectFlags.Optional ? null : void 0, flags);
     ngDevMode && emitInjectEvent(token, value, flags);
     return value;
   }
@@ -5835,7 +5844,7 @@ var R3Injector = class extends EnvironmentInjector {
   }
   runInContext(fn) {
     assertNotDestroyed(this);
-    const previousInjector = setCurrentInjector(this);
+    const previousInjector = setCurrentInjector2(this);
     const previousInjectImplementation = setInjectImplementation(void 0);
     let prevInjectContext;
     if (ngDevMode) {
@@ -5847,7 +5856,7 @@ var R3Injector = class extends EnvironmentInjector {
     try {
       return fn();
     } finally {
-      setCurrentInjector(previousInjector);
+      setCurrentInjector2(previousInjector);
       setInjectImplementation(previousInjectImplementation);
       ngDevMode && setInjectorProfilerContext(prevInjectContext);
     }
@@ -5865,7 +5874,7 @@ var R3Injector = class extends EnvironmentInjector {
         token
       });
     }
-    const previousInjector = setCurrentInjector(this);
+    const previousInjector = setCurrentInjector2(this);
     const previousInjectImplementation = setInjectImplementation(void 0);
     try {
       if (!(flags & InjectFlags.SkipSelf)) {
@@ -5905,14 +5914,14 @@ var R3Injector = class extends EnvironmentInjector {
       }
     } finally {
       setInjectImplementation(previousInjectImplementation);
-      setCurrentInjector(previousInjector);
+      setCurrentInjector2(previousInjector);
       ngDevMode && setInjectorProfilerContext(prevInjectContext);
     }
   }
   /** @internal */
   resolveInjectorInitializers() {
     const prevConsumer = setActiveConsumer(null);
-    const previousInjector = setCurrentInjector(this);
+    const previousInjector = setCurrentInjector2(this);
     const previousInjectImplementation = setInjectImplementation(void 0);
     let prevInjectContext;
     if (ngDevMode) {
@@ -5930,7 +5939,7 @@ var R3Injector = class extends EnvironmentInjector {
         initializer();
       }
     } finally {
-      setCurrentInjector(previousInjector);
+      setCurrentInjector2(previousInjector);
       setInjectImplementation(previousInjectImplementation);
       ngDevMode && setInjectorProfilerContext(prevInjectContext);
       setActiveConsumer(prevConsumer);
@@ -5985,7 +5994,7 @@ var R3Injector = class extends EnvironmentInjector {
   hydrate(token, record) {
     const prevConsumer = setActiveConsumer(null);
     try {
-      if (ngDevMode && record.value === CIRCULAR) {
+      if (record.value === CIRCULAR) {
         throwCyclicDependencyError(stringify(token));
       } else if (record.value === NOT_YET) {
         record.value = CIRCULAR;
@@ -6130,18 +6139,18 @@ function runInInjectionContext(injector, fn) {
       token: null
     });
   }
-  const prevInjector = setCurrentInjector(injector);
+  const prevInjector = setCurrentInjector2(injector);
   const previousInjectImplementation = setInjectImplementation(void 0);
   try {
     return fn();
   } finally {
-    setCurrentInjector(prevInjector);
+    setCurrentInjector2(prevInjector);
     ngDevMode && setInjectorProfilerContext(prevInjectorProfilerContext);
     setInjectImplementation(previousInjectImplementation);
   }
 }
 function isInInjectionContext() {
-  return getInjectImplementation() !== void 0 || getCurrentInjector() != null;
+  return getInjectImplementation() !== void 0 || getCurrentInjector2() != null;
 }
 function assertInInjectionContext(debugFn) {
   if (!isInInjectionContext()) {
@@ -7296,9 +7305,6 @@ var NodeInjectorFactory = class {
     this.injectImpl = injectImplementation;
   }
 };
-function isFactory(obj) {
-  return obj instanceof NodeInjectorFactory;
-}
 function toTNodeTypeAsString(tNodeType) {
   let text = "";
   tNodeType & 1 && (text += "|Text");
@@ -7494,7 +7500,7 @@ var BLOOM_SIZE = 256;
 var BLOOM_MASK = BLOOM_SIZE - 1;
 var BLOOM_BUCKET_BITS = 5;
 var nextNgElementId = 0;
-var NOT_FOUND = {};
+var NOT_FOUND2 = {};
 function bloomAdd(injectorIndex, tView, type) {
   ngDevMode && assertEqual(tView.firstCreatePass, true, "expected firstCreatePass to be true");
   let id;
@@ -7647,13 +7653,13 @@ function getOrCreateInjectable(tNode, lView, token, flags = InjectFlags.Default,
     if (lView[FLAGS] & 2048 && // The token must be present on the current node injector when the `Self`
     // flag is set, so the lookup on embedded view injector(s) can be skipped.
     !(flags & InjectFlags.Self)) {
-      const embeddedInjectorValue = lookupTokenUsingEmbeddedInjector(tNode, lView, token, flags, NOT_FOUND);
-      if (embeddedInjectorValue !== NOT_FOUND) {
+      const embeddedInjectorValue = lookupTokenUsingEmbeddedInjector(tNode, lView, token, flags, NOT_FOUND2);
+      if (embeddedInjectorValue !== NOT_FOUND2) {
         return embeddedInjectorValue;
       }
     }
-    const value = lookupTokenUsingNodeInjector(tNode, lView, token, flags, NOT_FOUND);
-    if (value !== NOT_FOUND) {
+    const value = lookupTokenUsingNodeInjector(tNode, lView, token, flags, NOT_FOUND2);
+    if (value !== NOT_FOUND2) {
       return value;
     }
   }
@@ -7712,7 +7718,7 @@ function lookupTokenUsingNodeInjector(tNode, lView, token, flags, notFoundValue)
       ], lView);
       if (bloomHasToken(bloomHash, injectorIndex, tView.data)) {
         const instance = searchTokensOnInjector(injectorIndex, lView, token, previousTView, flags, hostTElementNode);
-        if (instance !== NOT_FOUND) {
+        if (instance !== NOT_FOUND2) {
           return instance;
         }
       }
@@ -7763,7 +7769,7 @@ function searchTokensOnInjector(injectorIndex, lView, token, previousTView, flag
   if (injectableIdx !== null) {
     return getNodeInjectable(lView, currentTView, injectableIdx, tNode);
   } else {
-    return NOT_FOUND;
+    return NOT_FOUND2;
   }
 }
 function locateDirectiveOrProvider(tNode, tView, token, canAccessViewProviders, isHostSpecialCase) {
@@ -7792,7 +7798,7 @@ function locateDirectiveOrProvider(tNode, tView, token, canAccessViewProviders, 
 function getNodeInjectable(lView, tView, index, tNode) {
   let value = lView[index];
   const tData = tView.data;
-  if (isFactory(value)) {
+  if (value instanceof NodeInjectorFactory) {
     const factory = value;
     if (factory.resolving) {
       throwCyclicDependencyError(stringifyForError(tData[index]));
@@ -7906,16 +7912,16 @@ function lookupTokenUsingEmbeddedInjector(tNode, lView, token, flags, notFoundVa
   let currentLView = lView;
   while (currentTNode !== null && currentLView !== null && currentLView[FLAGS] & 2048 && !isRootView(currentLView)) {
     ngDevMode && assertTNodeForLView(currentTNode, currentLView);
-    const nodeInjectorValue = lookupTokenUsingNodeInjector(currentTNode, currentLView, token, flags | InjectFlags.Self, NOT_FOUND);
-    if (nodeInjectorValue !== NOT_FOUND) {
+    const nodeInjectorValue = lookupTokenUsingNodeInjector(currentTNode, currentLView, token, flags | InjectFlags.Self, NOT_FOUND2);
+    if (nodeInjectorValue !== NOT_FOUND2) {
       return nodeInjectorValue;
     }
     let parentTNode = currentTNode.parent;
     if (!parentTNode) {
       const embeddedViewInjector = currentLView[EMBEDDED_VIEW_INJECTOR];
       if (embeddedViewInjector) {
-        const embeddedViewInjectorValue = embeddedViewInjector.get(token, NOT_FOUND, flags);
-        if (embeddedViewInjectorValue !== NOT_FOUND) {
+        const embeddedViewInjectorValue = embeddedViewInjector.get(token, NOT_FOUND2, flags);
+        if (embeddedViewInjectorValue !== NOT_FOUND2) {
           return embeddedViewInjectorValue;
         }
       }
@@ -10274,8 +10280,8 @@ var sharedStashFunction = (rEl, eventType, listenerFn) => {
   el.__jsaction_fns = eventListenerMap;
 };
 var sharedMapFunction = (rEl, jsActionMap) => {
-  let blockName = rEl.getAttribute(DEFER_BLOCK_SSR_ID_ATTRIBUTE) ?? "";
   const el = rEl;
+  let blockName = el.getAttribute(DEFER_BLOCK_SSR_ID_ATTRIBUTE) ?? "";
   const blockSet = jsActionMap.get(blockName) ?? /* @__PURE__ */ new Set();
   if (!blockSet.has(el)) {
     blockSet.add(el);
@@ -10305,7 +10311,7 @@ var JSACTION_EVENT_CONTRACT = new InjectionToken(ngDevMode ? "EVENT_CONTRACT_DET
 });
 function invokeListeners(event, currentTarget) {
   const handlerFns = currentTarget?.__jsaction_fns?.get(event.type);
-  if (!handlerFns) {
+  if (!handlerFns || !currentTarget?.isConnected) {
     return;
   }
   for (const handler of handlerFns) {
@@ -11964,7 +11970,7 @@ function writeToDirectiveInput(def, instance, publicName, value) {
       if (!def.inputs.hasOwnProperty(publicName)) {
         throw new Error(`ASSERTION ERROR: Directive ${def.type.name} does not have an input with a public name of "${publicName}"`);
       }
-      if (isFactory(instance)) {
+      if (instance instanceof NodeInjectorFactory) {
         throw new Error(`ASSERTION ERROR: Cannot write input to factory for type ${def.type.name}. Directive has not been created yet.`);
       }
     }
@@ -13448,12 +13454,6 @@ var ViewRef$1 = class {
     return this._lView[CONTEXT];
   }
   /**
-   * Reports whether the given view is considered dirty according to the different marking mechanisms.
-   */
-  get dirty() {
-    return !!(this._lView[FLAGS] & (64 | 1024 | 8192)) || !!this._lView[REACTIVE_TEMPLATE_CONSUMER]?.dirty;
-  }
-  /**
    * @deprecated Replacing the full context object is not supported. Modify the context
    *   directly, or consider using a `Proxy` if you need to replace the full object.
    * // TODO(devversion): Remove this.
@@ -13525,9 +13525,6 @@ var ViewRef$1 = class {
       4
       /* NotificationSource.MarkForCheck */
     );
-  }
-  markForRefresh() {
-    markViewForRefresh(this._cdRefInjectingView || this._lView);
   }
   /**
    * Detaches the view from the change detection tree.
@@ -13709,6 +13706,12 @@ var ViewRef$1 = class {
     updateAncestorTraversalFlagsOnAttach(this._lView);
   }
 };
+function isViewDirty(view) {
+  return requiresRefreshOrTraversal(view._lView) || !!(view._lView[FLAGS] & 64);
+}
+function markForRefresh(view) {
+  markViewForRefresh(view["_cdRefInjectingView"] || view._lView);
+}
 var TemplateRef = class {
   /**
    * @internal
@@ -15719,11 +15722,15 @@ var ComponentFactory = class extends ComponentFactory$1 {
   componentType;
   ngContentSelectors;
   isBoundToModule;
+  cachedInputs = null;
+  cachedOutputs = null;
   get inputs() {
-    return toInputRefArray(this.componentDef.inputs);
+    this.cachedInputs ??= toInputRefArray(this.componentDef.inputs);
+    return this.cachedInputs;
   }
   get outputs() {
-    return toOutputRefArray(this.componentDef.outputs);
+    this.cachedOutputs ??= toOutputRefArray(this.componentDef.outputs);
+    return this.cachedOutputs;
   }
   /**
    * @param componentDef The component definition.
@@ -15747,7 +15754,7 @@ var ComponentFactory = class extends ComponentFactory$1 {
     try {
       const cmpDef = this.componentDef;
       ngDevMode && verifyNotAnOrphanComponent(cmpDef);
-      const tAttributes = rootSelectorOrNode ? ["ng-version", "19.2.0"] : (
+      const tAttributes = rootSelectorOrNode ? ["ng-version", "19.2.1"] : (
         // Extract attributes and classes from the first selector only to match VE behavior.
         extractAttrsAndClassesFromSelector(this.componentDef.selectors[0])
       );
@@ -23137,7 +23144,7 @@ function listenerInternal(tView, lView, renderer, tNode, eventName, listenerFn, 
       processOutputs = false;
     } else {
       listenerFn = wrapListener(tNode, lView, context2, listenerFn);
-      stashEventListener(native, eventName, listenerFn);
+      stashEventListener(target, eventName, listenerFn);
       const cleanupFn = renderer.listen(target, eventName, listenerFn);
       ngDevMode && ngDevMode.rendererAddEventListener++;
       lCleanup.push(listenerFn, cleanupFn);
@@ -25413,7 +25420,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = new Version("19.2.0");
+var VERSION = new Version("19.2.1");
 var ModuleWithComponentFactories = class {
   ngModuleFactory;
   componentFactories;
@@ -28160,6 +28167,7 @@ function withEventReplay() {
           const jsActionMap = inject(JSACTION_BLOCK_ELEMENT_MAP);
           if (shouldEnableEventReplay(injector)) {
             setStashFn((rEl, eventName, listenerFn) => {
+              if (rEl.nodeType !== Node.ELEMENT_NODE) return;
               sharedStashFunction(rEl, eventName, listenerFn);
               sharedMapFunction(rEl, jsActionMap);
             });
@@ -29818,7 +29826,7 @@ export {
   NG_MOD_DEF,
   NG_ELEMENT_ID,
   InjectFlags,
-  setCurrentInjector,
+  setCurrentInjector2 as setCurrentInjector,
   ɵɵinject,
   ɵɵinvalidFactoryDep,
   inject,
@@ -29943,6 +29951,8 @@ export {
   ɵɵadvance,
   RendererStyleFlags2,
   ViewRef$1,
+  isViewDirty,
+  markForRefresh,
   TemplateRef,
   ComponentRef$1,
   ComponentFactory$1,
@@ -30290,22 +30300,29 @@ export {
 
 @angular/core/fesm2022/primitives/signals.mjs:
   (**
-   * @license Angular v19.2.0
-   * (c) 2010-2024 Google LLC. https://angular.io/
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
+   * License: MIT
+   *)
+
+@angular/core/fesm2022/primitives/di.mjs:
+  (**
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/core/fesm2022/primitives/event-dispatch.mjs:
   (**
-   * @license Angular v19.2.0
-   * (c) 2010-2024 Google LLC. https://angular.io/
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/core/fesm2022/core.mjs:
   (**
-   * @license Angular v19.2.0
-   * (c) 2010-2024 Google LLC. https://angular.io/
+   * @license Angular v19.2.1
+   * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 
@@ -30354,4 +30371,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-MLSFSH6F.js.map
+//# sourceMappingURL=chunk-ICDOO44F.js.map

@@ -231,9 +231,11 @@ import {
   isSignal,
   isStandalone,
   isSubscribable,
+  isViewDirty,
   linkedSignal,
   makeEnvironmentProviders,
   makeStateKey,
+  markForRefresh,
   mergeApplicationConfig,
   microtaskEffect,
   model,
@@ -493,7 +495,7 @@ import {
   ɵɵvalidateIframeAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-} from "./chunk-MLSFSH6F.js";
+} from "./chunk-ICDOO44F.js";
 export {
   ANIMATION_MODULE_TYPE,
   APP_BOOTSTRAP_LISTENER,
@@ -754,6 +756,8 @@ export {
   isNgModule as ɵisNgModule,
   isPromise as ɵisPromise,
   isSubscribable as ɵisSubscribable,
+  isViewDirty as ɵisViewDirty,
+  markForRefresh as ɵmarkForRefresh,
   microtaskEffect as ɵmicrotaskEffect,
   noSideEffects as ɵnoSideEffects,
   patchComponentDefWithScope as ɵpatchComponentDefWithScope,
