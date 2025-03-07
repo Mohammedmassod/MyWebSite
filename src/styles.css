@@ -1,25 +1,31 @@
-
 /* استيراد الخطوط */
 body {
   font-family: 'Poppins', sans-serif;
   color: #333;
   margin: 0;
   padding: 0;
-  background: linear-gradient(270deg, #f4f4f9, #e6e9f0);
-  animation: gradient 15s ease infinite;
+  position: relative; /* لجعل الخلفية المتحركة في الخلف */
+  /*overflow: hidden;*/ /* لمنع التمرير */
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
+/* الخلفية المتحركة باستخدام SVG */
+.background-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* تأكد من أن الخلفية في الخلف */
+  animation: move 10s linear infinite; /* الحركة */
+}
 
-  50% {
-    background-position: 100% 50%;
+@keyframes move {
+  0% {
+    transform: translateY(0);
   }
 
   100% {
-    background-position: 0% 50%;
+    transform: translateY(-100%);
   }
 }
 
@@ -290,13 +296,7 @@ html.dark-mode section {
 
 .github {
   background: #333;
-
 }
-
-/* تأثير التحويم */
-/*.social-icons a:hover {
-  transform: scale(1.1);*/ /* تأثير التحويم */
-/*}*/
 
 /* ضبط المحاذاة عند تفعيل اللغة العربية */
 html[lang="ar"] body {
@@ -345,9 +345,8 @@ html[lang="ar"] #toggle-lang {
 }
 /* استيراد الخطوط */
 /*body {
-  font-family: 'Poppins', sans-serif;*/
-  /*background: linear-gradient(to right, #f4f4f9, #e6e9f0);*/
-  /*color: #333;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
   margin: 0;
   padding: 0;
   background: linear-gradient(270deg, #f4f4f9, #e6e9f0);
@@ -367,6 +366,7 @@ html[lang="ar"] #toggle-lang {
     background-position: 0% 50%;
   }
 }*/
+
 /* الهيدر والشريط العلوي */
 /*header {
   background: linear-gradient(135deg, #1e1e2d, #3a3d56);
@@ -463,17 +463,18 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;*/ /* يمكن تعديل هذا الحجم */
-    /*height: 50px;*/ /* يمكن تعديل هذا الحجم */
+    width: 50px;*/ /* حجم ثابت */
+    /*height: 50px;*/ /* حجم ثابت */
     /*border-radius: 50%;
     text-decoration: none;
     color: white;
     font-size: 24px;*/ /* حجم الأيقونة */
-    /*transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-  }
+    /*transition: background 0.3s ease-in-out;*/ /* إزالة تأثير transform */
+  /*}
 
     .social-icons a:hover {
-      transform: scale(1.1);*/ /* تأكد من استخدام تأثير متناسق */
+      transform: scale(1.1);*/ /* تأثير التحويم */
+      /*background: rgba(255, 255, 255, 0.1);*/ /* يمكنك إضافة تأثير خلفية فقط */
     /*}*/
 
 /* الفوتر */
@@ -513,26 +514,26 @@ h2 {
     font-size: 1.5rem;*/ /* تقليل حجم الخط */
     /*transition: color 0.3s ease;
   }
+
     h2:hover {
       color: #61dafb;
     }
+
   .social-icons {
     flex-direction: column;*/ /* تغيير الاتجاه إلى عمودي */
   /*}
-    .social-icons a:hover {
-      transform: rotate(360deg);
-    }
+
   button {
     width: 100%;*/ /* يجعل الأزرار تأخذ عرض الشاشة بالكامل */
     /*max-width: 200px;*/ /* يحدد الحد الأقصى للعرض */
     /*margin: 10px 0;*/ /* إضافة مسافة بين الأزرار */
     /*transition: background-color 0.3s ease, transform 0.2s ease;
   }
+
     button:hover {
       background-color: #21a1f1;
       transform: scale(1.05);
     }
-
 }
 
 [data-aos] {
@@ -620,30 +621,8 @@ h2 {
 html.dark-mode section {
   background: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
+}*/
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 1rem;
-}
-
-  .social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-  }
-    .social-icons a:hover {
-      transform: scale(1.1);
-    }*/
 /* ألوان الأيقونات */
 /*.whatsapp {
   background: #25D366;
@@ -655,12 +634,13 @@ html.dark-mode section {
 
 .github {
   background: #333;
+
 }*/
 
 /* تأثير التحويم */
 /*.social-icons a:hover {
-  transform: scale(1.1);
-}*/
+  transform: scale(1.1);*/ /* تأثير التحويم */
+/*}*/
 
 /* ضبط المحاذاة عند تفعيل اللغة العربية */
 /*html[lang="ar"] body {
@@ -707,3 +687,4 @@ html[lang="ar"] .container {
 /*html[lang="ar"] #toggle-lang {
   direction: ltr;
 }*/
+

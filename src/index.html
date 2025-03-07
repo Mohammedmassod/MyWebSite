@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <svg class="background-svg" viewBox="0 0 1440 320">
+    <path fill="#f4f4f9" fill-opacity="1" d="M0,256L30,245.3C60,235,120,213,180,218.7C240,224,300,256,360,245.3C420,235,480,181,540,144C600,107,660,85,720,96C780,107,840,149,900,160C960,171,1020,149,1080,144C1140,139,1200,149,1260,160C1320,171,1380,181,1410,186.7L1440,192L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320H0Z"></path>
+  </svg>
+
   <header>
     <nav>
       <ul>
@@ -23,6 +27,7 @@
     <button id="dark-mode-toggle">🌙</button>
 
   </header>
+  <div class="dynamic-background"></div>
 
   <div class="container">
     <section id="about" data-aos="fade-up" data-aos-duration="800">
@@ -33,7 +38,7 @@
       </p>
     </section>
 
-    <section id="projects" data-aos="fade-up"  data-aos-duration="800">
+    <section id="projects" data-aos="fade-up" data-aos-duration="800">
       <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
       <h3 data-en="Inventory and Pricing Management System" data-ar="نظام إدارة المخزون والتسعير">
         Inventory and Pricing Management System
@@ -166,6 +171,6 @@
         updateLanguage(newLang);
       });
     });
-    </script>
+  </script>
 </body>
 </html>
