@@ -1,19 +1,16 @@
-<!doctype   html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Personal Website</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-en="Professional Portfolio" data-ar="المحفظة الاحترافية">Professional Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <!--<link rel="stylesheet" href="styles-HZGOOLIQ.css">-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1 id="site-title" data-en="Mohammed Nasser" data-ar="محمد ناصر">Mohammed Nasser</h1>
     <nav>
       <ul>
         <li><a href="#about" data-en="About" data-ar="حول">About</a></li>
@@ -21,74 +18,123 @@
         <li><a href="#contact" data-en="Contact" data-ar="اتصل">Contact</a></li>
       </ul>
     </nav>
-    <button id="toggle-lang">AR</button>
+    <button id="toggle-lang">عربي</button>
+    <!--<button id="dark-mode-toggle" onclick="alert('✅ الزر يعمل!')">🌙</button>-->
+    <button id="dark-mode-toggle">🌙</button>
+
   </header>
-  <section id="about" data-aos="fade-up">
-    <h2 data-en="About Me" data-ar="حول">About Me</h2>
-    <p data-en="I am Mohamed Nasser Masoud, a software developer specialized in developing web applications using advanced technologies such as ASP.NET, Angular, and Maui. My focus is on providing innovative backend solutions that enhance performance and streamline business operations. With my experience in building complex and integrated applications, I always strive to deliver exceptional user experiences. If you are looking for innovative software solutions or want to discuss a new project, feel free to get in touch with me.
 
-"
-       data-ar="أنا محمد ناصر مسعود، مطور برمجيات متخصص في تطوير تطبيقات الويب باستخدام تقنيات متقدمة مثل ASP.NET و Angular و Maui. أركز على تقديم حلول تقنية مبتكرة في مجال الـ Backend تساعد في تحسين الأداء وتسهيل العمليات التجارية. من خلال خبرتي في بناء التطبيقات المعقدة والمتكاملة، أسعى دائمًا لتقديم تجارب مستخدم استثنائية. إذا كنت تبحث عن حلول برمجية مبتكرة أو ترغب في مناقشة مشروع جديد، فلا تتردد في التواصل معي.">
-      I am Mohamed Nasser Masoud, a software developer specialized in developing web applications using advanced technologies such as ASP.NET, Angular, and Maui. My focus is on providing innovative backend solutions that enhance performance and streamline business operations. With my experience in building complex and integrated applications, I always strive to deliver exceptional user experiences. If you are looking for innovative software solutions or want to discuss a new project, feel free to get in touch with me.
+  <div class="container">
+    <section id="about" data-aos="fade-up">
+      <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
+      <p data-en="Experienced developer specializing in ASP.NET and system integrations."
+         data-ar="مطور ذو خبرة متخصص في ASP.NET وتكامل الأنظمة.">
+        Experienced developer specializing in ASP.NET and system integrations.
+      </p>
+    </section>
 
-    </p>
-  </section>
-  <section id="projects" data-aos="fade-up">
-    <h2 data-en="POS System with ASP.NET API
-Developed a complete POS system with API integration, using ASP.NET Core and SQL Server.
+    <section id="projects" data-aos="fade-up">
+      <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
+      <h3 data-en="Inventory and Pricing Management System" data-ar="نظام إدارة المخزون والتسعير">
+        Inventory and Pricing Management System
+      </h3>
+      <p data-en="Developed a system for inventory and pricing management with ASP.NET Core and SQL Server."
+         data-ar="تم تطوير نظام لإدارة المخزون والتسعير باستخدام ASP.NET Core و SQL Server.">
+        Developed a system for inventory and pricing management with ASP.NET Core and SQL Server.
+      </p>
 
-Cross-platform Web App with Angular and Maui
-Built cross-platform web applications using Angular and Maui for seamless multi-device experience.
+      <h3 data-en="API for System Integration" data-ar="واجهة برمجية لتكامل الأنظمة">
+        API for System Integration
+      </h3>
+      <p data-en="Built APIs to connect various systems using ASP.NET Core and JWT Authentication."
+         data-ar="تم بناء واجهات برمجية لربط الأنظمة باستخدام ASP.NET Core و JWT Authentication.">
+        Built APIs to connect various systems using ASP.NET Core and JWT Authentication.
+      </p>
+    </section>
 
-Inventory and Pricing Management System
-Developed a system for inventory and pricing management with ASP.NET Core and SQL Server.
+    <section id="contact" data-aos="fade-up">
+      <h2 data-en="Contact" data-ar="اتصل">Contact</h2>
+      <p data-en="How to get in touch with me." data-ar="كيفية التواصل معي.">
+        How to get in touch with me.
+      </p>
+      <div class="social-icons">
+        <a href="https://wa.me/9785445" target="_blank" class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohmmed-nasser-massoud/" target="_blank" class="linkedin">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Mohammedmassod" target="_blank" class="github">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+  </div>
 
-API for System Integration
-Built APIs to connect various systems using ASP.NET Core and JWT Authentication." data-ar="نظام نقاط البيع (POS) مع ASP.NET API
-تطوير نظام نقاط بيع شامل مع واجهة API للتكامل، باستخدام ASP.NET Core و SQL Server.
-
-تطبيق ويب متعدد المنصات باستخدام Angular و Maui
-بناء تطبيقات ويب متعددة المنصات باستخدام Angular و Maui لتوفير تجربة سلسة عبر الأجهزة.
-
-نظام إدارة المخزون والتسعير
-تطوير نظام لإدارة المخزون والتسعير باستخدام ASP.NET Core و SQL Server.
-
-واجهة API للربط بين الأنظمة المختلفة
-بناء واجهات API لربط الأنظمة المختلفة باستخدام ASP.NET Core و JWT Authentication.
-
-">
-
-      POS System with ASP.NET API
-      Developed a complete POS system with API integration, using ASP.NET Core and SQL Server.
-
-      Cross-platform Web App with Angular and Maui
-      Built cross-platform web applications using Angular and Maui for seamless multi-device experience.
-
-      Inventory and Pricing Management System
-      Developed a system for inventory and pricing management with ASP.NET Core and SQL Server.
-
-      API for System Integration
-      Built APIs to connect various systems using ASP.NET Core and JWT Authentication.
-    </h2>
-    <p data-en="Details about your projects." data-ar="تفاصيل عن مشاريعك.">Details about your projects.</p>
-  </section>
-  <section id="contact" data-aos="fade-up">
-    <h2 data-en="Contact" data-ar="اتصل">Contact</h2>
-    <p data-en="How to get in touch with you." data-ar="كيفية التواصل معك.">How to get in touch with you.</p>
-    <div class="social-icons">
-      <a href="https://twitter.com" target="_blank">Twitter</a>
-      <a href="https://www.linkedin.com/in/mohmmed-nasser-massoud/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Mohammedmassod" target="_blank">GitHub</a>
-    </div>
-  </section>
   <footer>
-    <p>&copy; 2023 <span id="footer-name" data-en="Mohammed Nasser" data-ar="محمد ناصر">Mohammed Nasser</span></p>
+    <p>&copy; 2025 <span id="footer-name" data-en="Mohammed Nasser" data-ar="محمد ناصر">Mohammed Nasser</span></p>
   </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    AOS.init();
+    AOS.init({ once: true });
+    const toggleLangButton = document.getElementById("toggle-lang");
+    let currentLang = "en";
+
+    toggleLangButton.addEventListener("click", () => {
+      currentLang = currentLang === "en" ? "ar" : "en";
+      document.documentElement.lang = currentLang;
+      toggleLangButton.textContent = currentLang === "en" ? "عربي" : "English";
+
+      document.querySelectorAll("[data-en]").forEach(element => {
+        element.textContent = element.getAttribute(data - ${ currentLang });
+      });
+    });
+
+
+    gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+    gsap.from("section", { duration: 1, y: 50, opacity: 0, stagger: 0.3, ease: "power2.out" });
+    gsap.from(".social-icons a", { duration: 1, opacity: 0, scale: 0.5, stagger: 0.2, ease: "back.out(1.7)" });
+
+
   </script>
-  <script src="dist/main.js"></script>
+  <!--<script>
+    if (localStorage.getItem("dark-mode") === "enabled") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const html = document.documentElement;
+
+      // التحقق مما إذا كان الوضع الليلي مفعلًا مسبقًا وتطبيقه
+      if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+        html.classList.add("dark-mode");
+        darkModeToggle.textContent = "☀️"; // أيقونة الشمس للوضع الليلي
+      } else {
+        html.classList.remove("dark-mode");
+        darkModeToggle.textContent = "🌙"; // أيقونة القمر للوضع العادي
+      }
+
+      // تبديل الوضع الليلي عند النقر على الزر
+      darkModeToggle.addEventListener("click", function () {
+        if (body.classList.contains("dark-mode")) {
+          body.classList.remove("dark-mode");
+          html.classList.remove("dark-mode");
+          localStorage.setItem("dark-mode", "disabled");
+          darkModeToggle.textContent = "🌙"; // تبديل الأيقونة
+        } else {
+          body.classList.add("dark-mode");
+          html.classList.add("dark-mode");
+          localStorage.setItem("dark-mode", "enabled");
+          darkModeToggle.textContent = "☀️"; // تبديل الأيقونة
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-

@@ -1,83 +1,254 @@
+/* استيراد الخطوط */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #f4f4f9, #e6e9f0);
   color: #333;
+  margin: 0;
+  padding: 0;
 }
-
+/* الهيدر والشريط العلوي */
 header {
-  background-color: #282c34;
+  background: linear-gradient(135deg, #1e1e2d, #3a3d56);
+  padding: 1.5rem 0;
   color: white;
-  padding: 1rem 0;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding: 0;
 }
 
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+  nav ul li {
+    display: inline;
   }
 
-    nav ul li a:hover {
-      color: #61dafb;
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+      padding: 10px;
     }
 
-section {
-  padding: 4rem 2rem;
-  margin: 1rem 0;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+      nav ul li a:hover {
+        color: #61dafb;
+      }
 
-  section#about {
-    background-color: #e3f2fd;
-  }
-
-  section#projects {
-    background-color: #e8f5e9;
-  }
-
-  section#contact {
-    background-color: #fce4ec;
-  }
-
-footer {
-  background-color: #282c34;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
+/* زر تغيير اللغة */
 button#toggle-lang {
   background-color: #61dafb;
   border: none;
   color: white;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  margin-top: 1rem;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
   button#toggle-lang:hover {
     background-color: #21a1f1;
   }
 
+/* محتوى الصفحة */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding-bottom: 100px; /* منع تداخل الفوتر مع المحتوى */
+}
+/* تصميم الأقسام */
+section {
+  background: white;
+  color: #1e1e2d;
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #1e1e2d;
+}
+
+/* أيقونات التواصل الاجتماعي */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+  .social-icons a {
+    text-decoration: none;
+    color: white;
+    background-color: #1e1e2d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+    .social-icons a:hover {
+      background-color: #61dafb;
+    }
+
+/* الفوتر */
+footer {
+  background-color: #1e1e2d;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  position: relative; /* جعله نسبياً بدلاً من مثبت */
+  bottom: 0;
+}
+
+
+/* تحسين التصميم للأجهزة الكبيرة */
 @media (min-width: 768px) {
   section {
     padding: 6rem 4rem;
   }
+}
+[data-aos] {
+  opacity: 1 !important; /* إجبار ظهور العناصر حتى مع AOS */
+  transform: none !important;
+}
+
+/* زر الوضع الليلي */
+#dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+  #dark-mode-toggle:hover {
+    background: #555;
+  }
+
+/* الوضع الليلي */
+.dark-mode {
+  background: #1e1e2d !important;
+  color: white !important;
+}
+
+  /* تحسين مظهر العناصر في الوضع الليلي */
+  .dark-mode section {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    overflow: hidden; /* يمنع أي تأثير غير مرغوب فيه */
+  }
+
+    /* إنشاء طبقة خلفية ضبابية منفصلة عن النصوص */
+    .dark-mode section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit; /* يجعل الخلفية نفسها */
+      backdrop-filter: blur(10px); /* يطبق الضبابية فقط على الخلفية */
+      z-index: -1; /* يجعل التأثير في الخلف */
+    }
+
+    /* ضمان بقاء النصوص واضحة */
+    .dark-mode section h2,
+    .dark-mode section p,
+    .dark-mode section a {
+      position: relative;
+      z-index: 1; /* يجعل النصوص فوق الخلفية */
+      color: white !important; /* يجعل النص واضحًا */
+    }
+
+  .dark-mode a {
+    color: #61dafb !important;
+  }
+
+  .dark-mode header, .dark-mode footer {
+    background: #111 !important;
+    color: white !important;
+  }
+
+  .dark-mode nav ul li a {
+    color: #61dafb !important;
+  }
+
+  .dark-mode button {
+    background: #61dafb !important;
+    color: #1e1e2d !important;
+  }
+/* اجعل الوضع الليلي مفعلاً فورًا إذا كان مخزنًا في localStorage */
+html.dark-mode body {
+  background: #1e1e2d !important;
+  color: white !important;
+}
+
+html.dark-mode section {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+
+/* ألوان الأيقونات */
+.whatsapp {
+  background: #25D366;
+}
+
+.linkedin {
+  background: #0077B5;
+}
+
+.github {
+  background: #333;
+}
+
+/* تأثير التحويم */
+.social-icons a:hover {
+  transform: scale(1.1);
 }
