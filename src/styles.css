@@ -252,3 +252,80 @@ html.dark-mode section {
 .social-icons a:hover {
   transform: scale(1.1);
 }
+
+
+/* ضبط المحاذاة عند تفعيل اللغة العربية */
+html[lang="ar"] body {
+  text-align: right;
+  direction: rtl;
+}
+
+html[lang="ar"] nav ul {
+  flex-direction: row-reverse; /* يعكس ترتيب القائمة */
+}
+
+html[lang="ar"] .container {
+  text-align: right;
+}
+
+/* ضبط أزرار التنقل */
+html[lang="ar"] nav ul li a {
+  text-align: right;
+}
+
+/* تحسين أقسام الصفحة */
+html[lang="ar"] section {
+  text-align: right;
+}
+
+/* جعل أيقونات التواصل الاجتماعي تتناسق في RTL */
+html[lang="ar"] .social-icons {
+  flex-direction: row-reverse;
+}
+
+/* ضبط المحاذاة عند تفعيل اللغة العربية */
+html[lang="ar"] body {
+  text-align: right;
+  direction: rtl;
+}
+
+html[lang="ar"] nav ul {
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .container {
+  text-align: right;
+}
+
+html[lang="ar"] section {
+  text-align: right;
+}
+
+/* تحسين ترتيب أيقونات التواصل الاجتماعي */
+html[lang="ar"] .social-icons {
+  flex-direction: row-reverse;
+}
+
+
+/* ضبط المحاذاة عند تفعيل اللغة العربية */
+/*html[lang="ar"] body {
+  text-align: right;
+  direction: rtl;
+}
+
+html[lang="ar"] nav ul {
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .container {
+  text-align: right;
+}
+
+html[lang="ar"] section {
+  text-align: right;
+}*/
+
+/* تحسين ترتيب أيقونات التواصل الاجتماعي */
+/*html[lang="ar"] .social-icons {
+  flex-direction: row-reverse;
+}*/

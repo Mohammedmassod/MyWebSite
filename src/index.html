@@ -83,7 +83,7 @@
     let currentLang = "en";
 
     toggleLangButton.addEventListener("click", () => {
-      currentLang = currentLang === "en" ? "ar" : "en";
+      currentLang = currentLang === "en" ? "عربي" : "en";
       document.documentElement.lang = currentLang;
       toggleLangButton.textContent = currentLang === "en" ? "عربي" : "English";
 
@@ -136,5 +136,42 @@
       });
     });
   </script>
+  <script>
+    // تنفيذ التبديل مباشرة عند تحميل الصفحة
+    (function () {
+      const savedLang = localStorage.getItem("language") || "en";
+      document.documentElement.lang = savedLang;
+      document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
+    })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleLangButton = document.getElementById("toggle-lang");
+      const html = document.documentElement;
+
+      function updateLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+        toggleLangButton.textContent = lang === "ar" ? "EN" : "AR";
+
+        // تحديث النصوص بناءً على اللغة المختارة
+        document.querySelectorAll("[data-en]").forEach(element => {
+          element.textContent = element.getAttribute(data - ${ lang });
+        });
+
+        // حفظ اللغة المحددة في localStorage
+        localStorage.setItem("language", lang);
+      }
+
+      // استرجاع اللغة المحفوظة مسبقًا وتطبيقها مباشرة
+      const savedLang = localStorage.getItem("language") || "en";
+      updateLanguage(savedLang);
+
+      // تبديل اللغة عند الضغط على الزر
+      toggleLangButton.addEventListener("click", function () {
+        const newLang = document.documentElement.lang === "en" ? "ar" : "en";
+        updateLanguage(newLang);
+      });
+    });
+    </script>
 </body>
 </html>
