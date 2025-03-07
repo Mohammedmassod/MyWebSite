@@ -25,7 +25,7 @@
   </header>
 
   <div class="container">
-    <section id="about" data-aos="fade-up">
+    <section id="about" data-aos="fade-up" data-aos-duration="800">
       <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
       <p data-en="Experienced developer specializing in ASP.NET and system integrations."
          data-ar="مطور ذو خبرة متخصص في ASP.NET وتكامل الأنظمة.">
@@ -33,7 +33,7 @@
       </p>
     </section>
 
-    <section id="projects" data-aos="fade-up">
+    <section id="projects" data-aos="fade-up"  data-aos-duration="800">
       <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
       <h3 data-en="Inventory and Pricing Management System" data-ar="نظام إدارة المخزون والتسعير">
         Inventory and Pricing Management System
@@ -52,7 +52,7 @@
       </p>
     </section>
 
-    <section id="contact" data-aos="fade-up">
+    <section id="contact" data-aos="fade-up" data-aos-duration="800">
       <h2 data-en="Contact" data-ar="اتصل">Contact</h2>
       <p data-en="How to get in touch with me." data-ar="كيفية التواصل معي.">
         How to get in touch with me.
@@ -99,11 +99,9 @@
 
 
   </script>
-  <!--<script>
-    if (localStorage.getItem("dark-mode") === "enabled") {
-      document.documentElement.classList.add("dark-mode");
-    }
-  </script>-->
+  <script>
+    gsap.from(".social-icons a", { duration: 1, opacity: 0, scale: 0.5, stagger: { amount: 0.5, from: "start" }, ease: "back.out(1.7)" });
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const darkModeToggle = document.getElementById("dark-mode-toggle");
