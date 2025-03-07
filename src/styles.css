@@ -282,21 +282,23 @@ html[lang="ar"] section {
 html[lang="ar"] .social-icons {
   flex-direction: row-reverse;
 }
-
-/* ضبط المحاذاة عند تفعيل اللغة العربية */
+/* عند تفعيل اللغة العربية، يتم ضبط الاتجاهات بشكل صحيح */
 html[lang="ar"] body {
   text-align: right;
   direction: rtl;
 }
 
+/* تصحيح تخطيط القائمة عند RTL */
 html[lang="ar"] nav ul {
   flex-direction: row-reverse;
 }
 
+/* محاذاة الأقسام في RTL */
 html[lang="ar"] .container {
   text-align: right;
 }
 
+/* تحسين تخطيط الأقسام */
 html[lang="ar"] section {
   text-align: right;
 }
@@ -306,6 +308,22 @@ html[lang="ar"] .social-icons {
   flex-direction: row-reverse;
 }
 
+/* تأكد من عدم تأثر النصوص بالخلفية */
+html[lang="ar"] section {
+  background: rgba(255, 255, 255, 0.95); /* تحسين الوضوح */
+  color: #1e1e2d; /* التأكد من أن النص واضح */
+}
+
+/* تحسين تنسيق النصوص العربية */
+html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] p {
+  font-family: "Tajawal", sans-serif;
+  text-align: right;
+}
+
+/* التأكد من أن الزر والمحاذاة يعملان بشكل سليم */
+html[lang="ar"] #toggle-lang {
+  direction: ltr;
+}
 
 /* ضبط المحاذاة عند تفعيل اللغة العربية */
 /*html[lang="ar"] body {

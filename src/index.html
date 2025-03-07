@@ -58,7 +58,7 @@
         How to get in touch with me.
       </p>
       <div class="social-icons">
-        <a href="https://wa.me/9785445" target="_blank" class="whatsapp">
+        <a href="https://wa.me/97774785445" target="_blank" class="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
         <a href="https://www.linkedin.com/in/mohmmed-nasser-massoud/" target="_blank" class="linkedin">
@@ -137,13 +137,6 @@
     });
   </script>
   <script>
-    // تنفيذ التبديل مباشرة عند تحميل الصفحة
-    (function () {
-      const savedLang = localStorage.getItem("language") || "en";
-      document.documentElement.lang = savedLang;
-      document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
-    })();
-
     document.addEventListener("DOMContentLoaded", function () {
       const toggleLangButton = document.getElementById("toggle-lang");
       const html = document.documentElement;
@@ -160,6 +153,9 @@
 
         // حفظ اللغة المحددة في localStorage
         localStorage.setItem("language", lang);
+
+        // تحديث التنسيق عند تبديل اللغة
+        document.body.style.textAlign = lang === "ar" ? "right" : "left";
       }
 
       // استرجاع اللغة المحفوظة مسبقًا وتطبيقها مباشرة
