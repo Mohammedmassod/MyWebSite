@@ -1,3 +1,4 @@
+
 /* استيراد الخطوط */
 body {
   font-family: 'Poppins', sans-serif;
@@ -5,7 +6,8 @@ body {
   margin: 0;
   padding: 0;
   position: relative; /* لجعل الخلفية المتحركة في الخلف */
-  /*overflow: hidden;*/ /* لمنع التمرير */
+  background: url('assets/images/Digital_background.jpg') no-repeat center center fixed;
+  background-size: cover; /* تغطية الخلفية بالكامل */
 }
 
 /* الخلفية المتحركة باستخدام SVG */
@@ -31,7 +33,7 @@ body {
 
 /* الهيدر والشريط العلوي */
 header {
-  background: linear-gradient(135deg, #1e1e2d, #3a3d56);
+  background: linear-gradient(135deg, rgba(30, 30, 45, 0.8), rgba(58, 61, 86, 0.8));
   padding: 1.5rem 0;
   color: white;
   text-align: center;
@@ -92,7 +94,7 @@ button#toggle-lang {
 
 /* تصميم الأقسام */
 section {
-  background: white;
+  background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء مع شفافية */
   color: #1e1e2d;
   border-radius: 12px;
   padding: 4rem 2rem;
@@ -140,15 +142,29 @@ h2 {
     }
 
 /* الفوتر */
-footer {
-  background-color: #1e1e2d;
+/*footer {
+  background-color: rgba(30, 30, 45, 0.8);
   color: white;
   text-align: center;
   padding: 1rem;
   width: 100%;
-  position: relative; /* جعله نسبياً بدلاً من مثبت */
-  bottom: 0;
+  position: relative;*/ /* جعله نسبياً بدلاً من مثبت */
+  /*bottom: 0;
+}*/
+footer {
+  background-color: rgba(30, 30, 45, 0.8); /* خلفية داكنة مع شفافية */
+  color: white;
+  text-align: center; /* محاذاة النص في المنتصف */
+  padding: 1rem; /* حشوة متساوية من جميع الاتجاهات */
+  width: 100%; /* تأكد من أن الفوتر يغطي العرض بالكامل */
+  position: relative; /* جعله نسبياً لمنع التداخل */
+  bottom: 0; /* تأكد من أن الفوتر في الأسفل */
+  z-index: 1; /* تأكد من أن النص فوق أي عناصر أخرى */
+  display: flex; /* استخدام Flexbox */
+  justify-content: center; /* محاذاة العناصر في المنتصف */
+  align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
 }
+
 
 /* تحسين التصميم للأجهزة الكبيرة */
 @media (min-width: 768px) {
@@ -229,9 +245,18 @@ footer {
   color: white !important;
 }
 
+  .dark-mode body {
+    background: url('assets/images/Digital_background_dark.jpg') no-repeat center center fixed; /* استخدام صورة مناسبة للوضع الداكن */
+    background-size: cover; /* تغطية الخلفية بالكامل */
+  }
+
+  .dark-mode .background-svg {
+    background: none; /* تأكد من عدم وجود خلفية متعارضة */
+  }
+
   .dark-mode section {
     position: relative;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.1) !important; /* خلفية شفافة */
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     overflow: hidden; /* يمنع أي تأثير غير مرغوب فيه */
   }
@@ -243,9 +268,9 @@ footer {
       left: 0;
       width: 100%;
       height: 100%;
-      background: inherit; /* يجعل الخلفية نفسها */
-      backdrop-filter: blur(10px); /* يطبق الضبابية فقط على الخلفية */
-      z-index: -1; /* يجعل التأثير في الخلف */
+      background: inherit; /* استخدام الخلفية نفسها */
+      backdrop-filter: blur(10px); /* تطبيق الضبابية على الخلفية */
+      z-index: -1; /* التأكد من أن التأثير في الخلف */
     }
 
     .dark-mode section h2,
@@ -260,7 +285,8 @@ footer {
     color: #61dafb !important;
   }
 
-  .dark-mode header, .dark-mode footer {
+  .dark-mode header,
+  .dark-mode footer {
     background: #111 !important;
     color: white !important;
   }
@@ -334,7 +360,9 @@ html[lang="ar"] section {
 }
 
 /* تحسين تنسيق النصوص العربية */
-html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] p {
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] p {
   font-family: "Tajawal", sans-serif;
   text-align: right;
 }
@@ -344,32 +372,52 @@ html[lang="ar"] #toggle-lang {
   direction: ltr;
 }
 /* استيراد الخطوط */
+
+
 /*body {
   font-family: 'Poppins', sans-serif;
   color: #333;
   margin: 0;
   padding: 0;
-  background: linear-gradient(270deg, #f4f4f9, #e6e9f0);
-  animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
+  position: relative;*/ /* لجعل الخلفية المتحركة في الخلف */
+  /*overflow: hidden;*/ /* لمنع التمرير */
+  /*background: url('assets/images/Digital_background.jpg') no-repeat center center fixed;
+  background-size: cover;*/ /* تغطية الخلفية بالكامل */
+  /*animation: slide 30s linear infinite;*/ /* إضافة الحركة هنا */
+/*}*/
+/*@keyframes slide {
   0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
+    background-position: 0% 0%;
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position: 100% 0%;
+  }
+}*/
+/* الخلفية المتحركة باستخدام SVG */
+/*.background-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;*/ /* تأكد من أن الخلفية في الخلف */
+  /*animation: move 10s linear infinite;*/ /* الحركة */
+/*}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
   }
 }*/
 
 /* الهيدر والشريط العلوي */
 /*header {
-  background: linear-gradient(135deg, #1e1e2d, #3a3d56);
+  background: linear-gradient(135deg, rgba(30, 30, 45, 0.8), rgba(58, 61, 86, 0.8));
   padding: 1.5rem 0;
   color: white;
   text-align: center;
@@ -430,8 +478,8 @@ nav ul {
 
 /* تصميم الأقسام */
 /*section {
-  background: white;
-  color: #1e1e2d;
+  background: rgba(255, 255, 255, 0.9);*/ /* خلفية بيضاء مع شفافية */
+  /*color: #1e1e2d;
   border-radius: 12px;
   padding: 4rem 2rem;
   margin: 2rem 0;
@@ -479,7 +527,7 @@ h2 {
 
 /* الفوتر */
 /*footer {
-  background-color: #1e1e2d;
+  background-color: rgba(30, 30, 45, 0.8);
   color: white;
   text-align: center;
   padding: 1rem;
@@ -634,13 +682,7 @@ html.dark-mode section {
 
 .github {
   background: #333;
-
 }*/
-
-/* تأثير التحويم */
-/*.social-icons a:hover {
-  transform: scale(1.1);*/ /* تأثير التحويم */
-/*}*/
 
 /* ضبط المحاذاة عند تفعيل اللغة العربية */
 /*html[lang="ar"] body {
@@ -687,4 +729,3 @@ html[lang="ar"] .container {
 /*html[lang="ar"] #toggle-lang {
   direction: ltr;
 }*/
-
